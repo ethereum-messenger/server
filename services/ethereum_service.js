@@ -1,4 +1,7 @@
 var Web3 = require('web3');
+var solc = require('solc');
+let fs = require("fs");
+
 if (typeof web3 !== 'undefined') {
   web3 = new Web3(web3.currentProvider);
 } else {
@@ -14,8 +17,33 @@ class EthereumService {
     this.MAXMESSAGES = 255;
   }
 
-  createRoom(userAddress) {
+  createRoom(userAddress, keystore, password) {
+    web3.eth.defaultAccount = userAddress;
+    var wallet = web3.eth.accounts.wallet.decrypt([JSON.parse(keystore)], password);
+    var privateKey = wallet[0].privateKey;
+    var account = web3.eth.accounts.privateKeyToAccount(privateKey);
 
+    let code = '0x' + fs.readFileSync('chatRoom_sol_ChatRoom.bin');
+    var messageContract = new web3.eth.Contract(this.abi);
+    return messageContract.deploy({
+        data: code,
+      }).send({
+        from: userAddress,
+        gas: 1500000,
+    }, function(error, transactionHash){  })
+    /*
+    .on('error', function(error){ console.log(error) })
+    .on('transactionHash', function(transactionHash){ console.log('hash') })
+    .on('receipt', function(receipt){
+       console.log(receipt.contractAddress) // contains the new contract address
+    })
+    .on('confirmation', function(confirmationNumber, receipt){  })
+    */
+    .then(function(newContractInstance){
+      return newContractInstance.options.address;
+        //console.log(newContractInstance.options.address) // instance with the new contract address
+    });
+    
   }
 
   inviteUserToRoom(userAddress, roomAddress, keystore, password, otherUserAddress) {
@@ -104,7 +132,7 @@ class EthereumService {
   }
 }
 
-var roomAddress = '0xcd3cE6414530dfF4855776e0267703f620eaf969';
+var roomAddress = '0xdEA54629fbBc62DcbcEA615f38c60D0Dec4088b9';
 
 var user1Public = '0x4Def9c6EF3b6874e0F72443983980E4Fd0f9e2a3';
 var user1Keystore = '{"address":"4def9c6ef3b6874e0f72443983980e4fd0f9e2a3","crypto":{"cipher":"aes-128-ctr","ciphertext":"e2d64542e496cf256fcaf2c8550f7b96c97de77193e68fafee994b5c23be2938","cipherparams":{"iv":"7918c5a1351779ab51de1518c2420bdf"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"66c1330c02d6d4a200e2a692f07606c4b99c8bcbf72f4e0e93a370c3089952de"},"mac":"0587c99632b758307b774d60a86135be3e63e9768f6bb79218009eb7965bdd47"},"id":"bbf299eb-3e10-46c1-8ae2-3c16a62d7b16","version":3}'
@@ -121,12 +149,15 @@ var ethere = new EthereumService();
 
 //var res = ethere.inviteUserToRoom(user2Public, roomAddress, user2Keystore, user2Pass, user3Public);
 
-ethere.isMemberOfChat(user3Public, roomAddress).then(console.log);
-ethere.readMessages(user2Public,roomAddress).then(console.log);
+ethere.createRoom(user2Public, user2Keystore, user2Pass).then(console.log);
+
+//ethere.isMemberOfChat(user2Public, roomAddress).then(console.log);
+//ethere.readMessages(user2Public,roomAddress).then(console.log);
+
 /*
 ethere.writeMessage(user2Public, roomAddress, user2Keystore, user2Pass, 'hello from node2')
   .then(function() {
-    readMessages(user2Public,roomAddress).then(console.log)
+    ethere.readMessages(user2Public,roomAddress).then(console.log)
   });
 */
 //res.then(ethere.isMemberOfChat(user3Public, roomAddress).then(console.log));
