@@ -13,8 +13,8 @@ if (typeof web3 !== 'undefined') {
 class EthereumService {
   constructor() {
     // logic to setup, may want to make singleton, don't know
-    this.abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "message_", "type": "string" } ], "name": "addMessage", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "msgNum", "type": "uint256" } ], "name": "displaymessage", "outputs": [ { "name": "message_", "type": "string", "value": "" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "toMember", "type": "address" } ], "name": "makeMember", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "isMember", "outputs": [ { "name": "", "type": "bool", "value": true } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "messageCnt", "outputs": [ { "name": "", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" } ]')    
-    this.MAXMESSAGES = 255;
+    this.abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "message_", "type": "string" } ], "name": "addMessage", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "msgNum", "type": "uint256" } ], "name": "displaymessage", "outputs": [ { "name": "message_", "type": "string", "value": "" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "toMember", "type": "address" } ], "name": "makeMember", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "isMember", "outputs": [ { "name": "", "type": "bool", "value": false } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "messageCnt", "outputs": [ { "name": "", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" } ]')    
+    this.MAXMESSAGES = 256;
   }
 
   createRoom(userAddress, keystore, password) {
@@ -23,7 +23,7 @@ class EthereumService {
     var privateKey = wallet[0].privateKey;
     var account = web3.eth.accounts.privateKeyToAccount(privateKey);
 
-    let code = '0x' + fs.readFileSync('chatRoom_sol_ChatRoom.bin');
+    let code = '0x' + fs.readFileSync('services/chatRoom_sol_ChatRoom.bin');
     var messageContract = new web3.eth.Contract(this.abi);
     return messageContract.deploy({
         data: code,
@@ -150,4 +150,5 @@ ethere.createRoom(user2Public, user2Keystore, user2Pass)
     })
   })
 });
+
 */

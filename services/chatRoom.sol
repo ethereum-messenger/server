@@ -12,7 +12,8 @@ contract ChatRoom {
     }
     
     mapping(address => Member) members;
-    Message[255] messages;
+    uint MAX_MESSAGES = 1024;
+    Message[1024] messages;
     uint public messageCnt = 0;
     address admin;
     
@@ -32,7 +33,7 @@ contract ChatRoom {
         if (!isMember()) {
             return;
         }
-        messages[messageCnt].value = message_;
+        messages[messageCnt % MAX_MESSAGES].value = message_;
         messageCnt++;
     }
     
@@ -45,6 +46,6 @@ contract ChatRoom {
         if (!isMember()) {
             return;
         }
-        message_ = messages[msgNum].value;
+        message_ = messages[msgNum % MAX_MESSAGES].value;
     }
 }
