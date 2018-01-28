@@ -1,8 +1,24 @@
 $font-family: 'Merriweather', serif;
 $prime-color: #b71c1c;
+$second-color: #212121;
+$blue-color: #0d47a1;
 
 body {
   font: 100% $font-family;
-  color: $prime-color;
+  color: $second-color;
   background-color: $prime-color;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 140px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+}
+/*.container {
+  display: grid | inline-grid | subgrid;
+}*/
+.container2 {
+  display: grid;
+  grid-template-columns: 240px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
 }

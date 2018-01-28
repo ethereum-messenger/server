@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export default class Application extends Component {
   render() {
     return (
-      <h1>Hello, react</h1>
+      <div className="container2">
+      <h1>Ether Messenger</h1>
+      </div>
     )
   }
 }

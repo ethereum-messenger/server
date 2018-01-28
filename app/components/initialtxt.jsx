@@ -18,6 +18,7 @@ export default class Usertxt extends Component {
   }
   render() {
     return (
+      <div className="grid-container" >
       <form onSubmit={this.handleSubmit}>
         <label>
           Enter User Key:
@@ -25,6 +26,7 @@ export default class Usertxt extends Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      </div>
     )
   }
 }
