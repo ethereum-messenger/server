@@ -38,6 +38,8 @@ class EthereumService {
   }
 
   inviteUserToRoom(userAddress, roomAddress, keystore, password, otherUserAddress) {
+    //console.log(userAddress, roomAddress, keystore, password, otherUserAddress);
+
     web3.eth.defaultAccount = userAddress;
     var wallet = web3.eth.accounts.wallet.decrypt([JSON.parse(keystore)], password);
     var privateKey = wallet[0].privateKey;

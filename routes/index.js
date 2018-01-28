@@ -17,11 +17,13 @@ router.post('/rooms', async (req, res, next) => {
 
 router.post('/invitations', async (req, res, next) => {
   const {userAddress, roomAddress, keystore, password, inviteeAddress} = req.body;
+  //console.log(userAddress, roomAddress, keystore, password, inviteeAddress);
   const service = new EthereumService();
   try {
     const response = await service.inviteUserToRoom(userAddress, roomAddress, keystore, password, inviteeAddress);
     res.json(response);
   } catch (err) {
+    console.log(err);
     return res.status(500).send();
   }
 });
