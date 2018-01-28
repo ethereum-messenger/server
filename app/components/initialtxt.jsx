@@ -24,14 +24,13 @@ export default class Usertxt extends Component {
           Enter User Key:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+
       </form>
       <form onSubmit={this.handleSubmit}>
         <label>
           Enter User private key:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
       </form>
       <form onSubmit={this.handleSubmit}>
         <label>
