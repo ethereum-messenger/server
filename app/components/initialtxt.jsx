@@ -37,7 +37,6 @@ export default class Usertxt extends Component {
 
         <label>Enter Password:</label>
         <input type="text" id="password" />
->>>>>>> Add query-based settings for Room
 
         <input className="initialText" type="submit" value="Submit" />
       </form>
