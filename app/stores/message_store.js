@@ -9,21 +9,26 @@ export default class MessageStore {
   }
   
   handleEvents(action) {
+    let config = {
+      headers: {
+        contentType: "application/json; charset=UTF-8"
+      }
+    }
     switch(action.type) {
       case ROOM_CREATED:
-        axios.post('api.lvh.me:3000/rooms', action.data)
+        axios.post('api.lvh.me:3000/rooms', action.data, config)
         .then(response => console.log(response))
         break;
       case USER_INVITED:
-        axios.post('api.lvh.me:3000/invitations', action.data)
+        axios.post('api.lvh.me:3000/invitations', action.data, config)
         .then(response => console.log(response))
         break;
       case MESSAGE_POSTED:
-        axios.post('api.lvh.me:3000/rooms/messages', action.data)
+        axios.post('api.lvh.me:3000/rooms/messages', action.data, config)
         .then(response => console.log(response))
         break;
       case DISPLAY_MESSAGES:
-        axios.get('api.lvh.me:3000/rooms/messages', action.data)
+        axios.get('api.lvh.me:3000/rooms/messages', action.data, config)
         .then(response => console.log(response))
         break;
     }
