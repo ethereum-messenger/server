@@ -3,12 +3,13 @@ import uuidv4 from 'uuid/v4';
 let _dispatcher = null;
 
 export default class Dispatcher {
-  let _isDispatching = false;
-  let _listeners = {};
 
   constructor() {
     if (!_dispatcher) {
       _dispatcher = this;
+
+      this._isDispatching = false;
+      this._listeners = {};
     }
 
     return _dispatcher;
@@ -28,7 +29,7 @@ export default class Dispatcher {
     this._isDispatching = true;
 
     for (let token in this._listeners) {
-      const callback = this._listeners[key];
+      const callback = this._listeners[token];
       callback(payload);
     }
 
