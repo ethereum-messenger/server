@@ -31,17 +31,8 @@ class EthereumService {
         from: userAddress,
         gas: 1500000,
     }, function(error, transactionHash){  })
-    /*
-    .on('error', function(error){ console.log(error) })
-    .on('transactionHash', function(transactionHash){ console.log('hash') })
-    .on('receipt', function(receipt){
-       console.log(receipt.contractAddress) // contains the new contract address
-    })
-    .on('confirmation', function(confirmationNumber, receipt){  })
-    */
     .then(function(newContractInstance){
       return newContractInstance.options.address;
-        //console.log(newContractInstance.options.address) // instance with the new contract address
     });
     
   }
@@ -82,7 +73,6 @@ class EthereumService {
           calls.push(
           messageContract.methods.displaymessage(i).call()
           .then(function(results) {
-            console.log(results);
             return results;
           }));
         }
@@ -131,9 +121,9 @@ class EthereumService {
     });
   }
 }
-/*
-var roomAddress = '0xdEA54629fbBc62DcbcEA615f38c60D0Dec4088b9';
 
+//var roomAddress = '0xdEA54629fbBc62DcbcEA615f38c60D0Dec4088b9';
+/*
 var user1Public = '0x4Def9c6EF3b6874e0F72443983980E4Fd0f9e2a3';
 var user1Keystore = '{"address":"4def9c6ef3b6874e0f72443983980e4fd0f9e2a3","crypto":{"cipher":"aes-128-ctr","ciphertext":"e2d64542e496cf256fcaf2c8550f7b96c97de77193e68fafee994b5c23be2938","cipherparams":{"iv":"7918c5a1351779ab51de1518c2420bdf"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"66c1330c02d6d4a200e2a692f07606c4b99c8bcbf72f4e0e93a370c3089952de"},"mac":"0587c99632b758307b774d60a86135be3e63e9768f6bb79218009eb7965bdd47"},"id":"bbf299eb-3e10-46c1-8ae2-3c16a62d7b16","version":3}'
 
@@ -144,22 +134,20 @@ var user2Pass = 'hackathon'
 var user3Public = '0x50F6A47427730e86FA6fE7B4f8eBd6fc41e7Ac94';
 var user3Keystore = '{"address":"50f6a47427730e86fa6fe7b4f8ebd6fc41e7ac94","crypto":{"cipher":"aes-128-ctr","ciphertext":"805ef64bc4fdae6932dbad536c11498def104792230fa56df96ca969f239636a","cipherparams":{"iv":"0f7a4dce4520352c2c7c3f087a8c04b2"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"cbb3f363dd92c4f25dd50573a7c65c039e96dcecdef9f3fb95eeefd3fad8e834"},"mac":"f50e9552780a32ce1d765f2887c8261a50629eb55ca69c71b9256b7a24b2b900"},"id":"1718d3fc-4ec8-4134-b2cf-cd9c812ee1c4","version":3}'
 var user3Pass = 'hackathon'
+
+
+var ethere = new EthereumService();
+
+ethere.createRoom(user2Public, user2Keystore, user2Pass)
+.then(function(chatroom){
+  console.log(chatroom);
+  ethere.inviteUserToRoom(user2Public, chatroom, user2Keystore, user2Pass, user3Public)
+  .then(function(){
+    ethere.isMemberOfChat(user3Public,chatroom).then(console.log);
+    ethere.writeMessage(user2Public, chatroom, user2Keystore, user2Pass, 'hello from node2')
+    .then(function(){
+      ethere.readMessages(user2Public, chatroom).then(console.log)
+    })
+  })
+});
 */
-
-//var ethere = new EthereumService();
-
-//var res = ethere.inviteUserToRoom(user2Public, roomAddress, user2Keystore, user2Pass, user3Public);
-
-//ethere.createRoom(user2Public, user2Keystore, user2Pass).then(console.log);
-
-//ethere.isMemberOfChat(user2Public, roomAddress).then(console.log);
-//ethere.readMessages(user2Public,roomAddress).then(console.log);
-
-/*
-ethere.writeMessage(user2Public, roomAddress, user2Keystore, user2Pass, 'hello from node2')
-  .then(function() {
-    ethere.readMessages(user2Public,roomAddress).then(console.log)
-  });
-*/
-//res.then(ethere.isMemberOfChat(user3Public, roomAddress).then(console.log));
-
