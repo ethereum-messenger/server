@@ -1,36 +1,41 @@
-import Dispatcher from "../dispatcher";
-import axios from 'axios'
+import Dispatcher from '../dispatcher';
+import { ActionType } from '../actions';
+import { EventEmitter } from 'events';
+import axios from 'axios';
 
 export default class MessageStore {
   constructor() {
     this.messages = [];
     this.dispatcher = new Dispatcher();
-    this.token = dispatcher.register(this.handleEvents);
+    this.token = this.dispatcher.register(this.handleEvents);
+    this.emitter = new EventEmitter();
   }
-  
+
   handleEvents(action) {
-    let config = {
-      headers: {
-        contentType: "application/json; charset=UTF-8"
-      }
-    }
     switch(action.type) {
-      case ROOM_CREATED:
-        axios.post('api.lvh.me:3000/rooms', action.data, config)
+      case ActionType.ROOM_CREATED:
+        axios.post('http://api.lvh.me:3000/rooms', action.data)
         .then(response => console.log(response))
         break;
-      case USER_INVITED:
-        axios.post('api.lvh.me:3000/invitations', action.data, config)
+      case ActionType.USER_INVITED:
+        axios.post('http://api.lvh.me:3000/invitations', action.data)
         .then(response => console.log(response))
         break;
-      case MESSAGE_POSTED:
-        axios.post('api.lvh.me:3000/rooms/messages', action.data, config)
-        .then(response => console.log(response))
+      case ActionType.MESSAGE_POSTED:
+        alert('here');
+        axios.post('http://api.lvh.me:3000/rooms/messages', action.data)
+        .then(response => {
+          console.log(response)
+        })
         break;
-      case DISPLAY_MESSAGES:
-        axios.get('api.lvh.me:3000/rooms/messages', action.data, config)
+      case ActionType.DISPLAY_MESSAGES:
+        axios.get('http://api.lvh.me:3000/rooms/messages', action.data)
         .then(response => console.log(response))
         break;
     }
+  }
+
+  listenForMessages(callback) {
+    this.emitter.on('MESSAGE_AVAILABLE', callback);
   }
 }
