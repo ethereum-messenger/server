@@ -32,3 +32,18 @@ body {
   //grid-template-columns: 140px 340px auto 100px 100px;
   grid-template-rows: 75% 100px auto;
 }
+
+ul {
+  list-style-type: none;
+  font-size: 30px;
+}
+
+li{
+  padding: 10px;
+  background-color: yellow;
+}
+
+li:nth-child(odd) {
+  padding: 10px; 
+  background: cyan;
+}
