@@ -5,6 +5,7 @@ const ActionType = enumerable([
   USER_INVITED,
   USER_JOINED,
   MESSAGE_POSTED,
+  DISPLAY_MESSAGES
 ]);
 
 class Action {
