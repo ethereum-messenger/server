@@ -38,6 +38,7 @@ body {
   bottom: 0;
   font-size: 50px;
   padding: 20px;
+  width: 100%;
   background-color: $fourth-color;
 }
 .container4 {
@@ -48,7 +49,8 @@ body {
   grid-template-rows: 75% 100px auto;
 }
 .textForm{
-  width: 1000px;
+  //width: 750px;
+  width: 45%;
   font-size: 40px;
 }
 
@@ -77,4 +79,19 @@ li:nth-child(odd){
 }
 .initialForm{
   width: 400px;
+}
+.inviteBox {
+  width: 25%;
+  font-size: 30px;
+}
+
+.inviteSubmit {
+  font-size: 30px;
+}
+
+.inviteContainer{
+  position: fixed;
+  top: 0;
+  font-size: 30px;
+  padding: 20px;
 }

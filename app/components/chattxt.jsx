@@ -54,6 +54,25 @@ export default class Chattxt extends Component {
     event.preventDefault();
   }
 
+  handleInvite(event) {
+    const inviteBox = document.getElementById('otherId');
+    const inviteId = inviteBox.value;
+    inviteBox.value = "";
+
+    //userAddress, roomAddress, keystore, password, otherUserAddress
+    const action = new Action(ActionType.ROOM_CREATED, {
+      userAddress: this.userAddress,
+      roomAddress: this.roomAddress,
+      keystore: this.keystore,
+      password: this.password,
+      message: inviteId,
+    });
+
+    const dispatcher = new Dispatcher();
+    dispatcher.dispatch(action);
+    event.preventDefault();
+  }
+
   appendMessages(messages)
   {
     (messages).forEach(element => {
@@ -89,6 +108,16 @@ export default class Chattxt extends Component {
         </label>
         <input className="submit" type="submit" value="Submit" />
       </form>
+      </div>
+
+      <div className="inviteContainer">
+        <form onSubmit={this.handleInvite}>
+          <label>
+            Invite:
+            <input className="inviteBox" type="text" id="otherId" />
+          </label>
+          <input className="inviteSubmit" type="submit" value="Submit" />
+        </form>
       </div>
       </div>
 
