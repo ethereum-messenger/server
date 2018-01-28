@@ -1,12 +1,10 @@
-import enumerable from './utils/enumerable';
-
-const ActionType = enumerable([
-  'ROOM_CREATED',
-  'USER_INVITED',
-  'USER_JOINED',
-  'MESSAGE_POSTED',
-  'DISPLAY_MESSAGES',
-]);
+const ActionType = {
+  ROOM_CREATED: 0,
+  USER_INVITED: 1,
+  USER_JOINED: 2,
+  MESSAGE_POSTED: 3,
+  DISPLAY_MESSAGES: 4,
+}
 
 class Action {
   constructor(type, data) {
