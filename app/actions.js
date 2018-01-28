@@ -1,11 +1,11 @@
 import enumerable from './utils/enumerable';
 
 const ActionType = enumerable([
-  ROOM_CREATED,
-  USER_INVITED,
-  USER_JOINED,
-  MESSAGE_POSTED,
-  DISPLAY_MESSAGES
+  'ROOM_CREATED',
+  'USER_INVITED',
+  'USER_JOINED',
+  'MESSAGE_POSTED',
+  'DISPLAY_MESSAGES',
 ]);
 
 class Action {
