@@ -10,15 +10,16 @@ export default class Chattxt extends Component {
     this.store = new MessageStore();
     this.state = {messages: []};
     this.handleSubmit = this.handleSubmit.bind(this);
-<<<<<<< HEAD
-    
-=======
     this.params = new URLSearchParams(props.location.search);
     this.userAddress = this.params.get('userAddress');
     this.roomAddress = this.params.get('roomAddress');
     this.keystore = this.params.get('keystore');
     this.password = this.params.get('password');
->>>>>>> Add query-based settings for Room
+
+    if (!this.userAddress || !this.roomAddress || !this.keystore || !this.password) {
+      alert('Invalid connection to room. Please try again.');
+      this.props.history.push('/');
+    }
   }
 
   handleSubmit(event) {
@@ -67,7 +68,7 @@ export default class Chattxt extends Component {
       </form>
       </div>
       </div>
-      
+
     )
   }
 }
