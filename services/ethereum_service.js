@@ -131,7 +131,7 @@ class EthereumService {
     });
   }
 }
-
+/*
 var roomAddress = '0xdEA54629fbBc62DcbcEA615f38c60D0Dec4088b9';
 
 var user1Public = '0x4Def9c6EF3b6874e0F72443983980E4Fd0f9e2a3';
@@ -144,12 +144,13 @@ var user2Pass = 'hackathon'
 var user3Public = '0x50F6A47427730e86FA6fE7B4f8eBd6fc41e7Ac94';
 var user3Keystore = '{"address":"50f6a47427730e86fa6fe7b4f8ebd6fc41e7ac94","crypto":{"cipher":"aes-128-ctr","ciphertext":"805ef64bc4fdae6932dbad536c11498def104792230fa56df96ca969f239636a","cipherparams":{"iv":"0f7a4dce4520352c2c7c3f087a8c04b2"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"cbb3f363dd92c4f25dd50573a7c65c039e96dcecdef9f3fb95eeefd3fad8e834"},"mac":"f50e9552780a32ce1d765f2887c8261a50629eb55ca69c71b9256b7a24b2b900"},"id":"1718d3fc-4ec8-4134-b2cf-cd9c812ee1c4","version":3}'
 var user3Pass = 'hackathon'
+*/
 
-var ethere = new EthereumService();
+//var ethere = new EthereumService();
 
 //var res = ethere.inviteUserToRoom(user2Public, roomAddress, user2Keystore, user2Pass, user3Public);
 
-ethere.createRoom(user2Public, user2Keystore, user2Pass).then(console.log);
+//ethere.createRoom(user2Public, user2Keystore, user2Pass).then(console.log);
 
 //ethere.isMemberOfChat(user2Public, roomAddress).then(console.log);
 //ethere.readMessages(user2Public,roomAddress).then(console.log);
