@@ -3,37 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --watch & node ./bin/www",
-    "build": "webpack",
-    "test": "jest"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
-    "css-loader": "^0.28.9",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "morgan": "~1.9.0",
-    "node-sass": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-shapes": "^0.1.0",
-    "sass-loader": "^6.0.6",
     "serve-favicon": "~2.4.5",
     "solc": "^0.4.19",
-    "style-loader": "^0.20.1",
-    "uuid": "^3.2.1",
-    "web3": "^1.0.0-beta.29",
-    "webpack": "^3.10.0"
-  },
-  "devDependencies": {
-    "jest": "^22.1.4"
+    "web3": "^1.0.0-beta.29"
   }
 }
