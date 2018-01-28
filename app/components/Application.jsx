@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Test extends Component {
+export default class Application extends Component {
   render() {
     return (
-      <h1>Ether Messenger</h1>
+      <h1>Hello, react</h1>
     )
   }
 }

@@ -1,13 +1,6 @@
-import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Application from './components/Application.jsx';
 import "../styles/index.scss";
+import './actions'
 
-class Index extends Component {
-  render() {
-    return (
-      <h1>Hello, react</h1>
-    )
-  }
-}
-
-ReactDOM.render(<Index/>, document.getElementById('root'));
+ReactDOM.render(<Application/>, document.getElementById('root'));
