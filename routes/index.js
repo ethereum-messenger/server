@@ -44,7 +44,7 @@ router.get('/rooms/messages', async (req, res, next) => {
   }
 });
 
-router.post('/rooms/messages', (req, res, next) => {
+router.post('/rooms/messages', async (req, res, next) => {
   const userAddress = req.params.userAddress;
   const roomAddress = req.params.roomAddress;
   const message = req.body.message;
