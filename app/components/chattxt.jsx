@@ -6,6 +6,7 @@ export default class Chattxt extends Component {
     super(props);
     this.state = {messages: []};
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   handleSubmit(event) {
@@ -21,15 +22,7 @@ export default class Chattxt extends Component {
   render() {
     return (
       <div>
-      <div className="container3" >
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Enter Message:
-          <input type="text" id="message" />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-      </div>
+
       <div className="container4" >
       <ul>
       {
@@ -40,7 +33,17 @@ export default class Chattxt extends Component {
       </ul>
       </div>
       {/*<Rectangle width={400} height={100} fill={{color:'#fafafa'}} stroke={{color:'#E65243'}} strokeWidth={3} />*/}
+      <div className="container3" >
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Enter Message:
+          <input className="textForm" type="text" id="message" />
+        </label>
+        <input className="submit" type="submit" value="Submit" />
+      </form>
       </div>
+      </div>
+      
     )
   }
 }

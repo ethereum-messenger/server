@@ -1,7 +1,8 @@
 $font-family: 'Merriweather', serif;
-$prime-color: #b71c1c;
-$second-color: #212121;
-$blue-color: #0d47a1;
+$prime-color: #26292c;
+$second-color: #d1d1d1;
+$third-color: #bcbcbc;
+$fourth-color: #414040;
 
 body {
   font: 100% $font-family;
@@ -10,9 +11,16 @@ body {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 140px 300px auto 100px 80px;
-  grid-template-rows: 25% 100px auto;
+  //display: grid;
+  width: Xu;
+  height: Yu;
+  position: absolute;
+  top: 35%;
+  left: 37.5%;
+  margin-left: -(X/2)u;
+  margin-top: -(Y/2)u;
+  //grid-template-columns: 140px 300px auto 100px 80px;
+  //grid-template-rows: 25% 100px auto;
 }
 /*.container {
   display: grid | inline-grid | subgrid;
@@ -23,14 +31,29 @@ body {
   grid-template-rows: 25% 100px auto;
 }
 .container3 {
-  display: grid;
+  //display: grid;
   //grid-template-columns: 240px 340px auto 100px 100px;
-  grid-template-rows: 25% 50px auto;
+  //grid-template-rows: 25% 50px auto;
+  position: fixed;
+  bottom: 0;
+  font-size: 50px;
+  padding: 20px;
+  background-color: $fourth-color;
 }
 .container4 {
   display: grid;
+  padding: 30px;
+  padding-right: 100px;
   //grid-template-columns: 140px 340px auto 100px 100px;
   grid-template-rows: 75% 100px auto;
+}
+.textForm{
+  width: 1000px;
+  font-size: 40px;
+}
+
+.submit{
+  font-size: 40px;
 }
 
 ul {
@@ -39,11 +62,15 @@ ul {
 }
 
 li{
-  padding: 10px;
-  background-color: yellow;
+  padding-top: 30px;
+  text-align: left;
+  //background-color: yellow;
+  border-bottom: 1px solid $third-color;
 }
 
-li:nth-child(odd) {
-  padding: 10px; 
-  background: cyan;
+.initialText{
+  font-size: 40px;
+}
+.initialForm{
+  width: 400px;
 }

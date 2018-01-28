@@ -26,17 +26,17 @@ export default class Usertxt extends Component {
   render() {
     return (
       <div className="grid-container" >
-      <form onSubmit={this.handleSubmit}>
-        <label>Enter User Key:</label>
-        <input type="text" id="userKey" />
+      <form className="initialForm" onSubmit={this.handleSubmit}>
+        <label className="initialText">Enter User Key:</label>
+        <input className="initialText" type="text" id="userKey" />
 
-        <label>Enter User private key:</label>
-        <input type="text" id="privateUserKey" />
+        <label className="initialText">Enter User private key:</label>
+        <input className="initialText" type="text" id="privateUserKey" />
 
-        <label>Enter chat room Key:</label>
-        <input type="text" id="roomKey" />
+        <label className="initialText">Enter chat room Key:</label>
+        <input className="initialText" type="text" id="roomKey" />
 
-        <input type="submit" value="Submit" />
+        <input className="initialText" type="submit" value="Submit" />
       </form>
       </div>
     )
