@@ -11,7 +11,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 140px 50px auto 50px 40px;
+  grid-template-columns: 140px 300px auto 100px 80px;
   grid-template-rows: 25% 100px auto;
 }
 /*.container {
@@ -19,6 +19,11 @@ body {
 }*/
 .container2 {
   display: grid;
-  grid-template-columns: 240px 50px auto 50px 40px;
+  grid-template-columns: 240px 140px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
+}
+.container3 {
+  display: grid;
+  grid-template-columns: 240px 340px auto 100px 100px;
+  grid-template-rows: 25% 200px auto;
 }

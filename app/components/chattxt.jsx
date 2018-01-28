@@ -18,6 +18,7 @@ export default class Chattxt extends Component {
   }
   render() {
     return (
+      <div className="container3" >
       <form onSubmit={this.handleSubmit}>
         <label>
           Enter Message:
@@ -25,6 +26,7 @@ export default class Chattxt extends Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      </div>
     )
   }
 }
