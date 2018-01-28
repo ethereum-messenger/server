@@ -1,8 +1,8 @@
 $font-family: 'Merriweather', serif;
-$prime-color: #26292c;
+$prime-color: #40464d;
 $second-color: #d1d1d1;
 $third-color: #bcbcbc;
-$fourth-color: #414040;
+$fourth-color: #4c4264;
 
 body {
   font: 100% $font-family;
@@ -64,9 +64,13 @@ ul {
 li{
   padding-top: 30px;
   text-align: left;
-  //background-color: yellow;
-  border-bottom: 1px solid $third-color;
+  
+  //border-bottom: 1px solid $third-color;
 }
+
+li:nth-child(odd){
+  background-color: $fourth-color;
+}​
 
 .initialText{
   font-size: 40px;
