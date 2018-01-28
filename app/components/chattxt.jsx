@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Rectangle} from 'react-shapes';
+//import {Rectangle} from 'react-shapes';
 
 export default class Chattxt extends Component {
   constructor(props) {
