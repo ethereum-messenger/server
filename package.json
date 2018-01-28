@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "webpack --watch & node ./bin/www",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -29,5 +30,8 @@
     "uuid": "^3.2.1",
     "web3": "^1.0.0-beta.29",
     "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "jest": "^22.1.4"
   }
 }
