@@ -22,13 +22,23 @@ export default class Chattxt extends Component {
     }
   }
 
+  componentWillMount() {
+    this.store.listenForMessages(this.appendMessages)
+  }
+
+  componentWillUnmount(){
+
+  }
+
   handleSubmit(event) {
     const messageBox = document.getElementById('message');
     const message = messageBox.value;
     messageBox.value = "";
+    /*
     let messages = this.state.messages;
     messages.push(message);
     this.setState({messages});
+    */
 
     const action = new Action(ActionType.MESSAGE_POSTED, {
       userAddress: this.userAddress,
@@ -42,6 +52,19 @@ export default class Chattxt extends Component {
     const dispatcher = new Dispatcher();
     dispatcher.dispatch(action);
     event.preventDefault();
+  }
+
+  appendMessages(messages)
+  {
+    (messages).forEach(element => {
+      appendMessage(element)
+    });
+  }
+
+  appendMessage(message) {
+    let messages = this.state.messages;
+    messages.push(message);
+    this.setState({messages});
   }
 
   render() {
