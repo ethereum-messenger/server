@@ -24,6 +24,11 @@ body {
 }
 .container3 {
   display: grid;
-  grid-template-columns: 240px 340px auto 100px 100px;
-  grid-template-rows: 25% 200px auto;
+  //grid-template-columns: 240px 340px auto 100px 100px;
+  grid-template-rows: 25% 50px auto;
+}
+.container4 {
+  display: grid;
+  //grid-template-columns: 140px 340px auto 100px 100px;
+  grid-template-rows: 75% 100px auto;
 }
